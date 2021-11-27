@@ -20,7 +20,7 @@ class CreateQuestion extends Component {
                             <label htmlFor={"answer"}>Answer</label>
                             <input type="text" className={"form-control"} id={"answer"} placeholder={"Enter answer"}/>
                         </div>
-                        <button type={"submit"} className={"btn btn-primary"}>Submit</button>
+                        <button type={"submit"} className={"btn btn-success"}>Submit</button>
                     </form>
                 </div>
             </div>
