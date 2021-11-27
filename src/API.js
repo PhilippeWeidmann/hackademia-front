@@ -72,6 +72,12 @@ const APIFetcher = {
         return results
     },
 
+    postQuestion: async function (id, question) {
+        return await post("127.0.0.1:8000/api/questions", {code: id, text: question})
+    },
+    postAnswer: async function (id, answer) {
+        return await post("127.0.0.1:8000/api/questions/" + id + "/answers", {text: answer})
+    }
     /*
     Example :
     getSomeUrl: async function (someParam) {

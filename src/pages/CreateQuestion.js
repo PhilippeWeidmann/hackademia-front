@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import "../App.css"
+import APIFetcher from '../API.js';
 
 class CreateQuestion extends Component {
 
@@ -7,7 +8,8 @@ class CreateQuestion extends Component {
         super(props);
         this.state = {
             question: "",
-            answer: ""
+            answer: "",
+            id: Math.floor(Math.random() * 9999)
         };
     }
 
@@ -21,6 +23,7 @@ class CreateQuestion extends Component {
 
     handleSubmitQuestion = (event) => {
         event.preventDefault();
+        APIFetcher.postQuestion(this.state.id, this.state.question);
         this.props.history.push("/stats");
 
     };
