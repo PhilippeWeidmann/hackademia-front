@@ -26,7 +26,7 @@ class AddAnswer extends Component {
                     onChange={this.handleChange}
                     defaultValue={this.state.value}
                 />
-
+                <button type="button" class="btn btn-success">Envoyer</button>
             </div>
         );
     }
