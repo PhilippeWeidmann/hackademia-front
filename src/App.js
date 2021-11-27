@@ -5,11 +5,11 @@ import AddAnswer from "./pages/AddAnswer";
 import CreateQuestion from "./pages/CreateQuestion";
 import OrderAnswerGroups from "./pages/OrderAnswerGroups";
 
-
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, signInAnonymously } from "firebase/auth";
-import {useAuthState} from 'react-firebase-hooks/auth';
+import { useEffect } from 'react';
+// import {useAuthState} from 'react-firebase-hooks/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDrKkelBFdGGNnETurK7g30hwUKYrFHY28",
@@ -20,9 +20,9 @@ const firebaseConfig = {
     appId: "1:92401016369:web:dd6f6459970edd243eff10"
 };
 
-const FBapp = initializeApp(firebaseConfig);
-const db = getFirestore();
-const auth = getAuth(FBapp);
+const FBapp;
+const db;
+const auth;
 
 function App() {
 
@@ -30,7 +30,11 @@ function App() {
     // const logout = () => {
     //     auth.signOut();
     // }
-
+    useEffect(() => {
+        FBapp = initializeApp(firebaseConfig);
+        db = getFirestore(FBapp);
+        auth = getAuth(FBapp);
+    }, []);
     signInAnonymously(auth)
         .then(() => {
             console.log('uid = ' + auth.currentUser.uid);
@@ -40,7 +44,7 @@ function App() {
             const errorMessage = error.message;
             console.log(errorMessage);
         });
-    
+
     // const [user] = useAuthState(auth);
 
     return (
@@ -48,7 +52,7 @@ function App() {
             <div className="App">
                 <Switch>
                     <Route path="/questions/:questionId/answers/add" component={AddAnswer} />
-                    <Route path="/questions/add" component={CreateQuestion} />
+                    <Route path="/questions/add" element={<CreateQuestion FBapp={FBapp}/>}/>
                     <Route path="/questions/:questionId/order" component={OrderAnswerGroups} />
                     <Route path="/" component={Home} />
                 </Switch>
