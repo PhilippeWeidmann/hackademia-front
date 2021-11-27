@@ -2,29 +2,56 @@ import React, {Component} from 'react';
 import "../App.css"
 
 class CreateQuestion extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            question: "",
+            answer: ""
+        };
+    }
+
+    handleInputChangeQuestion = (event) => {
+        this.setState({question: event.target.value});
+    };
+
+    handleInputChangeAnswer = (event) => {
+        this.setState({answer: event.target.value});
+    };
+
+    handleSubmitQuestion = (event) => {
+        event.preventDefault();
+        this.props.history.push("/stats");
+
+    };
+
     render() {
-        return <div className={"container-fluid"}>
-            <div className={"row"}>
-                <div className={"col-md-12"}>
-                    <h1>Create Question</h1>
+        return (
+            <div className={"container-fluid"}>
+                <div className={"d-flex justify-content-center"} style={{marginTop: "100pt"}}>
+                    <h1 style={{fontSize: "40pt"}}>Créer une question</h1>
                 </div>
-            </div>
-            <div className={"row"}>
-                <div className={"col-md-12"}>
-                    <form>
-                        <div className={"form-group"}>
-                            <label htmlFor={"question"}>Question</label>
-                            <input type="text" className={"form-control"} id={"question"} placeholder={"Enter question"}/>
+                <div className={"d-flex justify-content-center"}>
+                    <form style={{width: "50%"}} onSubmit={this.handleSubmitQuestion}>
+                        <div className="mb-5 mt-5">
+                            <label className="form-label">Question</label>
+                            <input className="form-control" style={{height: "100pt"}} value={this.state.question}
+                                   onChange={this.handleInputChangeQuestion}/>
+
                         </div>
-                        <div className={"form-group"}>
-                            <label htmlFor={"answer"}>Answer</label>
-                            <input type="text" className={"form-control"} id={"answer"} placeholder={"Enter answer"}/>
+                        <div className="mb-3">
+                            <label className="form-label">Réponse</label>
+                            <input className="form-control" style={{height: "100pt"}} value={this.state.answer}
+                                   onChange={this.handleInputChangeAnswer}/>
+                            <div className="form-text" style={{color: "white"}}>
+                                Il n'est pas obligatoire de renseigner une réponse
+                            </div>
                         </div>
-                        <button type={"submit"} className={"btn btn-primary"}>Submit</button>
+                        <button type="submit" className="btn btn-success">Envoyer</button>
                     </form>
                 </div>
             </div>
-        </div>
+        )
     }
 }
 
