@@ -80,7 +80,7 @@ class OrderAnswerGroups extends Component {
             <ul className="list-group">
                 {answerGroupRows}
             </ul>
-            <button onClick={this.handleSubmit} className={"mt-2 btn btn-primary float-end"}>Envoyer</button>
+            <button onClick={this.handleSubmit} className={"mt-2 btn btn-success float-end justify-center"}>Envoyer</button>
         </div>
     }
 }
