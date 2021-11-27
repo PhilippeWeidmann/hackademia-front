@@ -5,13 +5,16 @@ class AddAnswer extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.state = { value: 'Réfiger votre question, ici.',name:'' };
+        this.state = {
+            value: 'Rédiger votre question, ici.',
+            name: ''
+        };
     }
     handleChange(e) {
         this.setState({ value: e.target.value });
     }
 
-    handleInput = event =>{
+    handleInput = event => {
         this.setState({ name: event.target.value });
     };
 
@@ -38,9 +41,9 @@ class AddAnswer extends Component {
                 <NavLink
                     onClick={this.logValue}
                     class="btn btn-success"
-                    to = {{
-                        pathname:"/questions/add"
-                        }}
+                    to={{
+                        pathname: "/questions/" + this.props.match.params.questionId + "/order"
+                    }}
                 >Envoyer </NavLink>
             </div>
         );
