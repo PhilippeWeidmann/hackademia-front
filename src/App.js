@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import AddAnswer from "./pages/AddAnswer";
 import CreateQuestion from "./pages/CreateQuestion";
 import OrderAnswerGroups from "./pages/OrderAnswerGroups";
+import ClusterVisualization from "./pages/ClusterVisualization";
 import EnterCode from "./pages/EnterCode";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/questions/:questionId/answers/add" component={AddAnswer}/>
                     <Route path="/questions/add" component={CreateQuestion}/>
                     <Route path="/questions/:questionId/order" component={OrderAnswerGroups}/>
+                    <Route path="/questions/:questionId/graph" component={ClusterVisualization}/>
                     <Route path="/" component={Home}/>
                 </Switch>
             </div>

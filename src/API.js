@@ -8,43 +8,53 @@ const API = Axios.create({
 const APIFetcher = {
     getAnswerClusters: async function (questionId) {
         return {
-            "id": 1,
-            "answers": [
-                [
+            "id":1,
+            "question":{
+                "id":1,
+                "text":"What is the answer to life, the universe, and everything?",
+                "answerGroups":[
                     {
-                        "id": 1,
-                        "text": "some answer"
+                        "id":1,
+                        "answers":[
+                            {
+                                "id":1,
+                                "text":"some answer"
+                            },
+                            {
+                                "id":2,
+                                "text":"some close answer"
+                            },
+                            {
+                                "id":3,
+                                "text":"some other close answer"
+                            }
+                        ]
                     },
                     {
-                        "id": 2,
-                        "text": "some close answer"
-                    },
-                    {
-                        "id": 3,
-                        "text": "some other close answer"
-                    }
-                ],
-                [
-                    {
-                        "id": 4,
-                        "text": "far answer"
-                    },
-                    {
-                        "id": 5,
-                        "text": "wrong answer"
-                    },
-                    {
-                        "id": 6,
-                        "text": "faaaaar"
+                        "id":2,
+                        "answers":[
+                            {
+                                "id":4,
+                                "text":"far answer"
+                            },
+                            {
+                                "id":5,
+                                "text":"wrong answer"
+                            },
+                            {
+                                "id":6,
+                                "text":"faaaaar"
+                            }
+                        ]
                     }
                 ]
-            ]
+            }
         }
-
+        
         const results = await get(questionId+'/answers')
         return results
     },
-
+    
     /*
     Example :
     getSomeUrl: async function (someParam) {
@@ -53,12 +63,12 @@ const APIFetcher = {
     },
     Usage :
     APIFetcher.getSomeUrl(someParam)
-            .then(response => {
-
-            })
-            .catch(error => {
-
-            })
+    .then(response => {
+        
+    })
+    .catch(error => {
+        
+    })
     */
 }
 
