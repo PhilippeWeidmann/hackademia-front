@@ -53,7 +53,7 @@ const APIFetcher = {
                     "answers": [
                         {
                             "id": 4,
-                            "text": "far answer"
+                            "text": "very far answer"
                         },
                         {
                             "id": 5,

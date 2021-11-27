@@ -40,9 +40,10 @@ class OrderAnswerGroups extends Component {
         event.preventDefault();
         let questionId = this.props.match.params.questionId;
         let answerGroupIds = this.state.orderedAnswerGroups.map(group => group.id);
-        APIFetcher.postUserOrdering(questionId, answerGroupIds).then(() => {
-            this.props.history.push('pushtoviz');
-        });
+        this.props.history.push('/stats');
+
+        /* APIFetcher.postUserOrdering(questionId, answerGroupIds).then(() => {
+         });*/
     }
 
     componentDidMount() {
@@ -80,7 +81,8 @@ class OrderAnswerGroups extends Component {
             <ul className="list-group">
                 {answerGroupRows}
             </ul>
-            <button onClick={this.handleSubmit} className={"mt-2 btn btn-success float-end justify-center"}>Envoyer</button>
+            <button onClick={this.handleSubmit} className={"mt-2 btn btn-success float-end justify-center"}>Envoyer
+            </button>
         </div>
     }
 }

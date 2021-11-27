@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import "../App.css"
-import APIFetcher from '../API.js';
 
 class CreateQuestion extends Component {
 
@@ -23,7 +22,7 @@ class CreateQuestion extends Component {
 
     handleSubmitQuestion = (event) => {
         event.preventDefault();
-        APIFetcher.postQuestion(this.state.id, this.state.question);
+        //APIFetcher.postQuestion(this.state.id, this.state.question);
         this.props.history.push("/stats");
 
     };
