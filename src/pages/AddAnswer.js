@@ -39,10 +39,7 @@ class AddAnswer extends Component {
                     onClick={this.logValue}
                     class="btn btn-success"
                     to = {{
-                        pathname:"/questions/:questionId/order"
-                        state:{
-                            code.
-                        }
+                        pathname:"/questions/add"
                         }}
                 >Envoyer </NavLink>
             </div>
