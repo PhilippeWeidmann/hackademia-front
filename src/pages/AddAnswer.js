@@ -5,7 +5,7 @@ class AddAnswer extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.state = { value: 'Réfiger votre question, ici.' };
+        this.state = { value: 'Réfiger votre question, ici.',name:'' };
     }
     handleChange(e) {
         this.setState({ value: e.target.value });
@@ -21,7 +21,7 @@ class AddAnswer extends Component {
 
     render() {
         return (
-            <div className="mb-3 p-3">
+            <div className="mb-3 p-3 text-center justify">
                 <h1>Question</h1>
                 <label for="Textarea" class="form-label">
                     Comment avez-vous compris notre manière de noter?
