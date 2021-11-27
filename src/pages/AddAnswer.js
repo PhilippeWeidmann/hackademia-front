@@ -12,8 +12,12 @@ class AddAnswer extends Component {
     }
 
     handleInput = event =>{
-        this.setState({});
+        this.setState({ name: event.target.value });
     };
+
+    logValue = () => {
+        console.log(this.state.name);
+    }
 
     render() {
         return (
@@ -27,11 +31,12 @@ class AddAnswer extends Component {
                     class="form-control"
                     id="Textarea"
                     rows="7"
-                    onChange={this.handleChange}
+                    onChange={this.handleInput}
                     defaultValue={this.state.value}
                     style={{ marginBottom: '1%' }}
                 />
                 <NavLink
+                    onClick={this.logValue}
                     class="btn btn-success"
                     to = {{
                         pathname:"/questions/:questionId/order"
