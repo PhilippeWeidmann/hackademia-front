@@ -114,7 +114,7 @@ class ClusterVisualization extends Component {
 
     render() {
 
-        return <div className={"text-align-center"}>
+        return <div className={"text-center mt-4"}>
             <RD3Component data={this.state.d3Node} />
         </div>
     }
