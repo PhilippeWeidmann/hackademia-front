@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class AddAnswer extends Component {
     constructor(props) {
@@ -10,11 +11,14 @@ class AddAnswer extends Component {
         this.setState({ value: e.target.value });
     }
 
+    handleInput = event =>{
+        this.setState({});
+    };
 
     render() {
         return (
-            <div className="mb-3">
-                <h1 class="display-3">Question</h1>
+            <div className="mb-3 p-3">
+                <h1>Question</h1>
                 <label for="Textarea" class="form-label">
                     Comment avez-vous compris notre manière de noter?
                 </label>
@@ -25,8 +29,17 @@ class AddAnswer extends Component {
                     rows="7"
                     onChange={this.handleChange}
                     defaultValue={this.state.value}
+                    style={{ marginBottom: '1%' }}
                 />
-                <button type="button" class="btn btn-success">Envoyer</button>
+                <NavLink
+                    class="btn btn-success"
+                    to = {{
+                        pathname:"/questions/:questionId/order"
+                        state:{
+                            code.
+                        }
+                        }}
+                >Envoyer </NavLink>
             </div>
         );
     }
