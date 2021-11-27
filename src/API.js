@@ -6,42 +6,69 @@ const API = Axios.create({
 })
 
 const APIFetcher = {
+    postUserOrdering: async function (questionId, groupIds) {
+        return await post('urlforodering/' + questionId, {order: groupIds})
+    },
     getAnswerClusters: async function (questionId) {
         return {
             "id": 1,
-            "answers": [
-                [
-                    {
-                        "id": 1,
-                        "text": "some answer"
-                    },
-                    {
-                        "id": 2,
-                        "text": "some close answer"
-                    },
-                    {
-                        "id": 3,
-                        "text": "some other close answer"
-                    }
-                ],
-                [
-                    {
-                        "id": 4,
-                        "text": "far answer"
-                    },
-                    {
-                        "id": 5,
-                        "text": "wrong answer"
-                    },
-                    {
-                        "id": 6,
-                        "text": "faaaaar"
-                    }
-                ]
+            "text": "What is the answer to life, the universe, and everything?",
+            "answerGroups": [
+                {
+                    "id": 1,
+                    "answers": [
+                        {
+                            "id": 1,
+                            "text": "some answer"
+                        },
+                        {
+                            "id": 2,
+                            "text": "some close answer"
+                        },
+                        {
+                            "id": 3,
+                            "text": "some other close answer"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "answers": [
+                        {
+                            "id": 4,
+                            "text": "far answer"
+                        },
+                        {
+                            "id": 5,
+                            "text": "wrong answer"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "answers": [
+                        {
+                            "id": 4,
+                            "text": "far answer"
+                        },
+                        {
+                            "id": 5,
+                            "text": "wrong answer"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        }
+                    ]
+                }
             ]
         }
 
-        const results = await get(questionId+'/answers')
+        const results = await get(questionId + '/answers')
         return results
     },
 
