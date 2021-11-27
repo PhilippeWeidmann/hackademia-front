@@ -21,8 +21,7 @@ class ClusterVisualization extends Component {
             'd3Node': node
         })
 
-        let questionId = this.props.match.params.questionId;
-        APIFetcher.getAnswerClusters(questionId).then(
+        APIFetcher.getAnswerClusters(0).then(
             (results) => {
                 this.setState({
                     'data': results
@@ -32,14 +31,14 @@ class ClusterVisualization extends Component {
         ).then(
             (results) => {
                 const answerData = results.answerGroups ?? [];
-                const data = answerData.map(function(d) { 
+                const data = answerData.map(function(d) {
                     return {
                         id: d.id,
                         students: d.answers,
                         // TODO ADD PROFESSOR REFERENCE
                         reference: []
                 }})
-                
+
                 var margin = {top: 20, right: 20, bottom: 30, left: 40},
                     width = 960 - margin.left - margin.right,
                     height = 500 - margin.top - margin.bottom;
@@ -51,7 +50,7 @@ class ClusterVisualization extends Component {
                     .append("g")
                     .attr("transform",
                             "translate(" + margin.left + "," + margin.top + ")");
-                
+
                 var groups = data.map(d=>d.id)
                 var subgroups = Object.keys(data[0]).filter(x => x !== 'id')
 
@@ -65,11 +64,11 @@ class ClusterVisualization extends Component {
                     .call(d3.axisBottom(x).tickSize(0));
 
                 var sizes = [...data.map(d => d.students.length), ...data.map(d => d.reference.length)]
-                
+
                 var y = d3.scaleLinear()
                     .domain([0, Math.max(...sizes) + (10 - Math.max(...sizes) % 10)])
                     .range([ height, 0 ]);
-    
+
                 svg.append("g")
                     .call(d3.axisLeft(y));
 
@@ -81,8 +80,8 @@ class ClusterVisualization extends Component {
                 // color palette = one color per subgroup
                 var color = d3.scaleOrdinal()
                     .domain(subgroups)
-                    .range(['#e41a1c','#377eb8','#4daf4a'])
-                
+                    .range(['#ffffff','#377eb8','#4daf4a'])
+
                 // Show the bars
                 svg.append("g")
                     .selectAll("g")
@@ -91,12 +90,12 @@ class ClusterVisualization extends Component {
                     .enter()
                     .append("g")
                     .attr("transform", function(d) {
-                        return "translate(" + x(d.id) + ",0)"; 
+                        return "translate(" + x(d.id) + ",0)";
                     })
                     .selectAll("rect")
-                    .data(function(d) { 
-                        return subgroups.map(function(key) { 
-                            return {key: key, value: d[key]}; 
+                    .data(function(d) {
+                        return subgroups.map(function(key) {
+                            return {key: key, value: d[key]};
                         });
                     })
                     .enter().append("rect")
@@ -114,8 +113,8 @@ class ClusterVisualization extends Component {
     }
 
     render() {
-        
-        return <div>
+
+        return <div className={"text-align-center"}>
             <RD3Component data={this.state.d3Node} />
         </div>
     }

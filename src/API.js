@@ -18,10 +18,6 @@ const APIFetcher = {
                     "id": 1,
                     "answers": [
                         {
-                            "id": 1,
-                            "text": "some answer"
-                        },
-                        {
                             "id": 2,
                             "text": "some close answer"
                         },
@@ -62,7 +58,87 @@ const APIFetcher = {
                         {
                             "id": 6,
                             "text": "faaaaar"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        },
+                        {
+                            "id": 3,
+                            "text": "some other close answer"
                         }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "answers": [
+                        {
+                            "id": 4,
+                            "text": "very far answer"
+                        },
+                        {
+                            "id": 5,
+                            "text": "wrong answer"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        },
+                        {
+                            "id": 3,
+                            "text": "some other close answer"
+                        },
+                        {
+                            "id": 4,
+                            "text": "far answer"
+                        },
+                        {
+                            "id": 5,
+                            "text": "wrong answer"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        },
+
+                    ]
+                },
+                {
+                    "id": 5,
+                    "answers": [
+                        {
+                            "id": 4,
+                            "text": "very far answer"
+                        },
+                        {
+                            "id": 5,
+                            "text": "wrong answer"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        },
+                        {
+                            "id": 6,
+                            "text": "faaaaar"
+                        },
+                        {
+                            "id": 3,
+                            "text": "some other close answer"
+                        },
+                        {
+                            "id": 4,
+                            "text": "far answer"
+                        },
+
                     ]
                 }
             ]
